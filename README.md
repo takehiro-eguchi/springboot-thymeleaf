@@ -1,2 +1,2 @@
-# springboot-thymeleaf-
+# springboot-thymeleaf
 SpringBootとThymeleafを用いたサンプルプロジェクトです。
