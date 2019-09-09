@@ -2,6 +2,7 @@ package com.egu.springthymeleaf.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.ldap.userdetails.LdapUserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,14 +25,20 @@ public class HelloController {
 		// セッション情報よりユーザを取得
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		Object principal = auth.getPrincipal();
-		if (!(principal instanceof UserInfo)) {
+		String username = null;
+		if (principal instanceof UserInfo) {
+			UserInfo userInfo = (UserInfo)principal;
+			username = userInfo.getUsername();
+		} else if (principal instanceof LdapUserDetails) {
+			LdapUserDetails userDetails = (LdapUserDetails)principal;
+			username = userDetails.getUsername();
+		} else {
 			throw new IllegalStateException(
 					"Illegal principal type. principal = " + principal);
 		}
-		UserInfo userInfo = (UserInfo)principal;
 
 		// 描画
-		model.addAttribute("name", userInfo.getUsername());
+		model.addAttribute("name", username);
         return "hello";
 	}
 }
