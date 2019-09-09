@@ -4,7 +4,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * セキュリティ設定オブジェクトです。
+ * Ldapを用いたセキュリティ設定オブジェクトです。
  * @author t-eguchi
  *
  */

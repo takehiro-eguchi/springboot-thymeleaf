@@ -1,6 +1,22 @@
 # springboot-thymeleaf
 SpringBootとThymeleafを用いたサンプルプロジェクトです。
 
+## プロジェクト構成
+
+* Maven
+    * ビルド、テスト、デプロイ等のライフサイクルを管理する
+* spring-boot
+    * spring-boot-starter-web
+        * Webコンテナ(Tomcat等)を内包したWebアプリケーションフレームワーク
+    * spring-boot-starter-thymeleaf
+        * HTMLテンプレートエンジン(jspのようなもの)
+    * spring-boot-starter-security
+        * Webアプリケーションにおける認証認可フレームワーク
+    * spring-boot-starter-data-jpa
+        * データベース利用を行うフレームワーク
+* h2
+    * 開発用データベース、テーブルの自動作成などに対応しているため、サーバを立てる必要がない
+
 ## Maven設定
 以下のファイルを **C:\Users\${ユーザ名}\.m2\settings.xml** として作成してください。
 
@@ -19,7 +35,7 @@ SpringBootとThymeleafを用いたサンプルプロジェクトです。
       <protocol>http</protocol>
       <host>proxy.nssys.co.jp</host>
       <port>8080</port>
-      <nonProxyHosts>localhost|172.22.1.98</nonProxyHosts>
+      <nonProxyHosts>localhost</nonProxyHosts>
     </proxy>
     <proxy>
       <id>https</id>
@@ -31,5 +47,5 @@ SpringBootとThymeleafを用いたサンプルプロジェクトです。
     </proxy>
   </proxies>
 </settings>
-
 ~~~
+
