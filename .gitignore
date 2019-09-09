@@ -24,3 +24,4 @@ hs_err_pid*
 /target/
 /example-app.mv.db
 /sample.mv.db
+/sample.trace.db
