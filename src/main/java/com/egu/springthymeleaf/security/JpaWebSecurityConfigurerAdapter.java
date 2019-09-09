@@ -20,6 +20,11 @@ public class JpaWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapte
 	@Autowired
 	private UserDetailsService service;
 
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+//		http.authorizeRequests().anyRequest().anonymous();
+//	}
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth

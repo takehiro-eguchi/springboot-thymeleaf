@@ -33,8 +33,9 @@ public class HelloController {
 			LdapUserDetails userDetails = (LdapUserDetails)principal;
 			username = userDetails.getUsername();
 		} else {
-			throw new IllegalStateException(
-					"Illegal principal type. principal = " + principal);
+			username = "anonymous";
+//			throw new IllegalStateException(
+//					"Illegal principal type. principal = " + principal);
 		}
 
 		// 描画
