@@ -29,7 +29,7 @@ public class ChatController {
 	private ChatService service;
 
 	@GetMapping
-	public String get(@ModelAttribute("message") ChatMessage message, Model model) {
+	public String get(@ModelAttribute("message") ChatMessage message) {
 		return "chat";
 	}
 
