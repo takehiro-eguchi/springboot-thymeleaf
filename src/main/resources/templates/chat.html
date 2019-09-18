@@ -5,11 +5,16 @@
 <title>Chat</title>
 </head>
 <body>
-	<form action="/chat" method="post">
-		name:<br> <input type="text" name="name" /><br> <br>
+	<form th:action="@{/chat}" method="post" th:object="${message}">
+		name:<br>
+		<input type="text" name="name" th:value="${message.name}"/>
+		<span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+		<br>
 		message:<br>
-		<textarea name="message" rows="4" cols="40"></textarea>
-		<br> <input type="submit" name="submit" value="submit" />
+		<textarea name="message" rows="4" cols="40" th:text="${message.message}"></textarea>
+		<span class="text-danger" th:if="${#fields.hasErrors('message')}" th:errors="*{message}"></span>
+		<br>
+		<input type="submit" name="submit" value="submit" />
 	</form>
 </body>
 </html>

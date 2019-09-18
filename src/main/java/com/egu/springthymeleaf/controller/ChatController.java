@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,12 +29,21 @@ public class ChatController {
 	private ChatService service;
 
 	@GetMapping
-	public String get() {
+	public String get(@ModelAttribute("message") ChatMessage message, Model model) {
 		return "chat";
 	}
 
 	@PostMapping
-	public String post(@ModelAttribute ChatMessage message) {
+	public String post(
+			@Validated @ModelAttribute("message") ChatMessage message,
+			BindingResult result,
+			Model model) {
+		// エラー
+		if (result.hasErrors()) {
+			return "chat";
+		}
+
+		// 登録及びリダイレクト
 		service.post(message);
 		return "redirect:/chat/list";
 	}
