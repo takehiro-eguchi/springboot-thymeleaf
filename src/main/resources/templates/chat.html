@@ -1,0 +1,15 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Chat</title>
+</head>
+<body>
+	<form action="/chat" method="post">
+		name:<br> <input type="text" name="name" /><br> <br>
+		message:<br>
+		<textarea name="message" rows="4" cols="40"></textarea>
+		<br> <input type="submit" name="submit" value="submit" />
+	</form>
+</body>
+</html>
