@@ -1,5 +1,10 @@
 # springboot-thymeleaf
-SpringBootとThymeleafを用いたサンプルプロジェクトです。
+SpringBootとThymeleafを用いたサンプルプロジェクトです。<br>
+コメントを送信し、それをリストで参照可能なWebアプリケーションになっています。<br>
+実行手順については、以下の通りです。<br>
+
+1. `launch/SpringBootアプリケーション起動.launch`を選択し、`実行`します。
+2. ブラウザのURLバーに`http://localhost:8080/chat/list`と入力し、エンターを押下します。
 
 ## プロジェクト構成
 
